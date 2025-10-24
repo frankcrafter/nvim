@@ -35,25 +35,6 @@ return {
 	},
 
 	{
-		"MeanderingProgrammer/render-markdown.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the mini.nvim suite
-		opts = {
-			code = {
-				sign = false,
-				width = "block",
-				right_pad = 1,
-			},
-			heading = {
-				sign = false,
-				icons = {},
-			},
-			checkbox = {
-				enabled = false,
-			},
-		},
-	},
-
-	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		opts = function()
@@ -73,20 +54,6 @@ return {
 			symbol = "│",
 			options = { try_as_border = true },
 		},
-	},
-
-	{
-		"folke/snacks.nvim",
-		opts = {
-			indent = { enabled = false },
-			input = { enabled = true },
-			notifier = { enabled = true },
-			scope = { enabled = true },
-			scroll = { enabled = true },
-			statuscolumn = { enabled = false },
-			words = { enabled = true },
-		},
-		keys = {},
 	},
 
 	{

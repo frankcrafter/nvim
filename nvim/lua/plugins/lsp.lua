@@ -54,20 +54,34 @@ return {
 
 	{
 		"nvim-flutter/flutter-tools.nvim",
-		lazy = false,
 		opts = {},
+	},
+
+	{
+		"NStefan002/screenkey.nvim",
+		version = "*",
+		opts = {
+			win_opts = {
+				row = vim.o.lines - vim.o.cmdheight - 1,
+				col = vim.o.columns - 1,
+				relative = "editor",
+				anchor = "SE",
+				width = 40,
+				height = 3,
+				border = "single",
+				title = "Screenkey",
+				title_pos = "center",
+				style = "minimal",
+				focusable = false,
+				noautocmd = true,
+			},
+		},
 	},
 
 	{
 		"saghen/blink.cmp",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
-			{
-				"saghen/blink.compat",
-				optional = true, -- make optional so it's only enabled if any extras need it
-				opts = {},
-				version = not vim.g.lazyvim_blink_main and "*",
-			},
 		},
 		version = "1.*",
 		opts = {
@@ -86,41 +100,45 @@ return {
 					},
 				},
 				ghost_text = {
-					enabled = vim.g.ai_cmp,
+					enabled = true,
+					show_with_selection = true,
+					show_without_selection = true,
 				},
 			},
 			cmdline = {
 				enabled = false,
+			},
+			signature = {
+				enabled = true,
 			},
 			keymap = {
 				["<Tab>"] = { "select_next", "fallback" },
 				["<S-Tab>"] = { "select_prev", "fallback" },
 				["<CR>"] = { "select_and_accept", "fallback" },
 			},
-			fuzzy = { implementation = "lua" },
 		},
 	},
 
 	{
 		"nvimtools/none-ls.nvim",
 		opts = {},
-		{
-			"stevearc/conform.nvim",
-			opts = {
-				format_on_save = {
-					timeout_ms = 300,
-					lsp_format = "fallback",
-				},
-				formatters_by_ft = {
-					lua = { "stylua" },
-					javascript = { "prettier" },
-					javascriptreact = { "prettier" },
-					typescript = { "prettier" },
-					typescriptreact = { "prettier" },
-					css = { "prettier" },
-					html = { "prettier" },
-					json = { "prettier" },
-				},
+	},
+	{
+		"stevearc/conform.nvim",
+		opts = {
+			format_on_save = {
+				timeout_ms = 300,
+				lsp_format = "fallback",
+			},
+			formatters_by_ft = {
+				lua = { "stylua" },
+				javascript = { "prettier" },
+				javascriptreact = { "prettier" },
+				typescript = { "prettier" },
+				typescriptreact = { "prettier" },
+				css = { "prettier" },
+				html = { "prettier" },
+				json = { "prettier" },
 			},
 		},
 	},

@@ -1,4 +1,5 @@
 return {
+
 	{
 		"brenoprata10/nvim-highlight-colors",
 		opts = {
@@ -16,15 +17,42 @@ return {
 
 	{
 		"nvim-telescope/telescope.nvim",
-		lazy = false,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"nvim-telescope/telescope-file-browser.nvim",
-			{
-				"nvim-telescope/telescope-fzf-native.nvim",
-			},
+			"nvim-telescope/telescope-fzf-native.nvim",
+			"nvim-telescope/telescope-ui-select.nvim",
 		},
+		opts = function()
+			return {
+				pickers = {
+					find_files = {
+						theme = "dropdown",
+					},
+					live_grep = {
+						theme = "dropdown",
+					},
+					diagnostics = {
+						theme = "dropdown",
+						initial_mode = "normal",
+					},
+					buffers = {
+						theme = "dropdown",
+						initial_mode = "normal",
+					},
+				},
+				extensions = {
+					["ui-select"] = {
+						require("telescope.themes").get_dropdown(),
+					},
+					file_browser = {
+						theme = "dropdown",
+					},
+				},
+				require("telescope").load_extension("ui-select"),
+			}
+		end,
 		keys = {
 			{
 				"ff",
@@ -76,39 +104,17 @@ return {
 						grouped = true,
 						previewer = false,
 						initial_mode = "normal",
-						layout_config = { height = 15 },
+						layout_config = {
+							height = 15,
+						},
 					})
 				end,
-			},
-		},
-		opts = {
-			pickers = {
-				find_files = {
-					theme = "dropdown",
-				},
-				live_grep = {
-					theme = "dropdown",
-				},
-				diagnostics = {
-					theme = "dropdown",
-					initial_mode = "normal",
-				},
-				buffers = {
-					theme = "dropdown",
-					initial_mode = "normal",
-				},
-			},
-			extensions = {
-				file_browser = {
-					theme = "dropdown",
-				},
 			},
 		},
 	},
 
 	{
 		"akinsho/bufferline.nvim",
-		event = "VeryLazy",
 		keys = {
 			{ "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
 			{ "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
