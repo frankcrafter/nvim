@@ -7,6 +7,8 @@ vim.opt.fillchars = {
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 
+vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
