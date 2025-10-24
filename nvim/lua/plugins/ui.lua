@@ -21,6 +21,10 @@ return {
 						event = "notify",
 						find = "No information available",
 					},
+					{
+						event = "msg_show",
+						kind = "search_count",
+					},
 					opts = { skip = true },
 				},
 			},

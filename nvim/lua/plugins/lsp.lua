@@ -58,27 +58,6 @@ return {
 	},
 
 	{
-		"NStefan002/screenkey.nvim",
-		version = "*",
-		opts = {
-			win_opts = {
-				row = vim.o.lines - vim.o.cmdheight - 1,
-				col = vim.o.columns - 1,
-				relative = "editor",
-				anchor = "SE",
-				width = 40,
-				height = 3,
-				border = "single",
-				title = "Screenkey",
-				title_pos = "center",
-				style = "minimal",
-				focusable = false,
-				noautocmd = true,
-			},
-		},
-	},
-
-	{
 		"saghen/blink.cmp",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
@@ -108,9 +87,6 @@ return {
 			cmdline = {
 				enabled = false,
 			},
-			signature = {
-				enabled = true,
-			},
 			keymap = {
 				["<Tab>"] = { "select_next", "fallback" },
 				["<S-Tab>"] = { "select_prev", "fallback" },
@@ -120,11 +96,11 @@ return {
 	},
 
 	{
-		"nvimtools/none-ls.nvim",
-		opts = {},
-	},
-	{
 		"stevearc/conform.nvim",
+		dependencies = {
+			"nvimtools/none-ls.nvim",
+			opts = {},
+		},
 		opts = {
 			format_on_save = {
 				timeout_ms = 300,
