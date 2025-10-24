@@ -17,12 +17,13 @@ return {
 
 	{
 		"nvim-telescope/telescope.nvim",
+		lazy = false,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
+			"stevearc/dressing.nvim",
 			"nvim-telescope/telescope-file-browser.nvim",
 			"nvim-telescope/telescope-fzf-native.nvim",
-			"nvim-telescope/telescope-ui-select.nvim",
 		},
 		opts = function()
 			return {
@@ -43,14 +44,10 @@ return {
 					},
 				},
 				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown(),
-					},
 					file_browser = {
 						theme = "dropdown",
 					},
 				},
-				require("telescope").load_extension("ui-select"),
 			}
 		end,
 		keys = {
@@ -115,6 +112,7 @@ return {
 
 	{
 		"akinsho/bufferline.nvim",
+		lazy = false,
 		keys = {
 			{ "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
 			{ "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },

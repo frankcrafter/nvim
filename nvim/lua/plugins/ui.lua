@@ -4,48 +4,49 @@ return {
 		"folke/noice.nvim",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
 		},
-		config = function()
-			require("noice").setup({
-				lsp = {
-					override = {
-						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-						["vim.lsp.util.stylize_markdown"] = true,
+		opts = {
+			lsp = {
+				override = {
+					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+					["vim.lsp.util.stylize_markdown"] = true,
+				},
+			},
+			presets = {
+				lsp_doc_border = true,
+			},
+			routes = {
+				{
+					filter = {
+						event = "notify",
+						find = "No information available",
 					},
+					opts = { skip = true },
 				},
-				animation = {
-					duration = 3000,
-					easing = "ease-in-out",
-				},
-				presets = {
-					lsp_doc_border = true,
-				},
-				routes = {
-					{
-						filter = {
-							event = "notify",
-							find = "No information available",
-						},
-						opts = { skip = true },
-					},
-				},
-			})
-		end,
+			},
+		},
+	},
+
+	{
+
+		"rcarriga/nvim-notify",
+		opts = {
+			timeout = 3500,
+			animation = "slide",
+			render = "wrapped-compact",
+		},
 	},
 
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		opts = function()
-			return {
-				indent = {
-					char = "│",
-					tab_char = "│",
-				},
-				scope = { show_start = false, show_end = false },
-			}
-		end,
+		opts = {
+			indent = {
+				char = "│",
+				tab_char = "│",
+			},
+			scope = { show_start = false, show_end = false },
+		},
 	},
 
 	{
@@ -61,7 +62,7 @@ return {
 		dependencies = { "craftzdog/solarized-osaka.nvim" },
 		opts = function()
 			local colors = require("solarized-osaka.colors").setup()
-			require("incline").setup({
+			return {
 				highlight = {
 					groups = {
 						InclineNormal = { guibg = colors.magenta500, guifg = colors.base04 },
@@ -81,7 +82,7 @@ return {
 					local icon, color = require("nvim-web-devicons").get_icon_color(filename)
 					return { { icon, guifg = color }, { " " }, { filename } }
 				end,
-			})
+			}
 		end,
 	},
 
