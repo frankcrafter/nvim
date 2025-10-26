@@ -1,4 +1,20 @@
 return {
+	{
+		"akinsho/bufferline.nvim",
+		lazy = false,
+		keys = {
+			{ "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
+			{ "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
+		},
+		opts = {
+			options = {
+				always_show_bufferline = false,
+				mode = "tabs",
+				show_buffer_close_icons = false,
+				show_close_icon = false,
+			},
+		},
+	},
 
 	{
 		"brenoprata10/nvim-highlight-colors",
@@ -25,31 +41,6 @@ return {
 			"nvim-telescope/telescope-file-browser.nvim",
 			"nvim-telescope/telescope-fzf-native.nvim",
 		},
-		opts = function()
-			return {
-				pickers = {
-					find_files = {
-						theme = "dropdown",
-					},
-					live_grep = {
-						theme = "dropdown",
-					},
-					diagnostics = {
-						theme = "dropdown",
-						initial_mode = "normal",
-					},
-					buffers = {
-						theme = "dropdown",
-						initial_mode = "normal",
-					},
-				},
-				extensions = {
-					file_browser = {
-						theme = "dropdown",
-					},
-				},
-			}
-		end,
 		keys = {
 			{
 				"ff",
@@ -108,22 +99,58 @@ return {
 				end,
 			},
 		},
-	},
-
-	{
-		"akinsho/bufferline.nvim",
-		lazy = false,
-		keys = {
-			{ "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
-			{ "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
-		},
-		opts = {
-			options = {
-				always_show_bufferline = false,
-				mode = "tabs",
-				show_buffer_close_icons = false,
-				show_close_icon = false,
-			},
-		},
+		opts = function()
+			return {
+				extensions = {
+					file_browser = {
+						theme = "dropdown",
+						layout_config = {
+							preview_cutoff = 9999,
+						},
+						initial_mode = "normal",
+					},
+				},
+				pickers = {
+					find_files = {
+						theme = "dropdown",
+						layout_config = {
+							preview_cutoff = 9999,
+						},
+					},
+					diagnostics = {
+						theme = "dropdown",
+						layout_config = {
+							preview_cutoff = 9999,
+						},
+						initial_mode = "normal",
+					},
+					live_grep = {
+						sorting_strategy = "ascending",
+						layout_config = {
+							preview_width = 0.45,
+							horizontal = {
+								width = 0.95,
+								height = 20,
+							},
+							preview_cutoff = 0,
+							prompt_position = "top",
+						},
+					},
+					buffers = {
+						sorting_strategy = "ascending",
+						layout_config = {
+							preview_width = 0.45,
+							horizontal = {
+								width = 0.95,
+								height = 20,
+							},
+							preview_cutoff = 0,
+							prompt_position = "top",
+						},
+						initial_mode = "normal",
+					},
+				},
+			}
+		end,
 	},
 }

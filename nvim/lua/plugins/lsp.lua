@@ -64,10 +64,20 @@ return {
 		},
 		version = "1.*",
 		opts = {
+			keymap = {
+				["<Tab>"] = { "select_next", "fallback" },
+				["<S-Tab>"] = { "select_prev", "fallback" },
+				["<CR>"] = { "accept", "fallback" },
+			},
 			completion = {
+				documentation = {
+					auto_show = true,
+					auto_show_delay_ms = 300,
+				},
 				list = {
 					selection = {
 						preselect = false,
+						auto_insert = false,
 					},
 				},
 				menu = {
@@ -86,11 +96,6 @@ return {
 			},
 			cmdline = {
 				enabled = false,
-			},
-			keymap = {
-				["<Tab>"] = { "select_next", "fallback" },
-				["<S-Tab>"] = { "select_prev", "fallback" },
-				["<CR>"] = { "select_and_accept", "fallback" },
 			},
 		},
 	},

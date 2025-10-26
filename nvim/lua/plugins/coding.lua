@@ -18,9 +18,4 @@ return {
 			})
 		end,
 	},
-
-	{
-		"nvim-mini/mini.animate",
-		opts = {},
-	},
 }

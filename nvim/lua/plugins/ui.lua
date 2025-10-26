@@ -1,6 +1,19 @@
 return {
 
 	{
+		"folke/snacks.nvim",
+		lazy = false,
+		opts = {
+			scroll = { enabled = true },
+			words = { enabled = true },
+			notifier = { enabled = false },
+			statuscolumn = { enabled = false },
+			indent = { enabled = false },
+			scope = { enabled = false },
+		},
+	},
+
+	{
 		"folke/noice.nvim",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
@@ -44,13 +57,15 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		opts = {
-			indent = {
-				char = "│",
-				tab_char = "│",
-			},
-			scope = { show_start = false, show_end = false },
-		},
+		opts = function()
+			return {
+				indent = {
+					char = "│",
+					tab_char = "│",
+				},
+				scope = { show_start = false, show_end = false },
+			}
+		end,
 	},
 
 	{
@@ -96,7 +111,7 @@ return {
 			local lualine = require("lualine")
 			local colors = {
 				bg = "#001014",
-				fg = "#839395",
+				fg = "#9eabac",
 				red = "#db302d",
 				green = "#849900",
 				yellow = "#b28500",
