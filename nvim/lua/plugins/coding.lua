@@ -6,6 +6,11 @@ return {
 	},
 
 	{
+		"windwp/nvim-ts-autotag",
+		opts = {},
+	},
+
+	{
 		"nvim-mini/mini.bracketed",
 		config = function()
 			local bracketed = require("mini.bracketed")
