@@ -226,12 +226,27 @@ return {
 			})
 
 			ins_right({
+				"diagnostics",
+				sources = { "nvim_diagnostic" },
+				symbols = { error = " ", warn = "  ", info = "  ", hint = " 󰌵 " },
+				diagnostics_color = {
+					error = { fg = colors.red, gui = "bold,italic" },
+					warn = { fg = colors.yellow, gui = "bold" },
+					info = { fg = colors.cyan, gui = "bold" },
+					hint = { fg = colors.magenta, gui = "bold" },
+				},
+				cond = conditions.buffer_not_empty,
+				always_visible = true,
+				padding = { left = 0, right = 2 },
+			})
+
+			ins_right({
 				function()
 					return "│"
 				end,
 				cond = conditions.buffer_not_empty,
 				color = { fg = colors.fg, bg = colors.bg },
-				padding = { left = 0, right = 1 },
+				padding = { left = 0, right = 2 },
 			})
 
 			ins_right({
@@ -247,7 +262,7 @@ return {
 				"location",
 				cond = conditions.buffer_not_empty,
 				color = { fg = colors.fg, bg = colors.bg, gui = "italic" },
-				padding = { left = 1, right = 0 },
+				padding = { left = 1, right = 1 },
 			})
 
 			ins_right({
@@ -260,51 +275,10 @@ return {
 			})
 
 			ins_right({
-				function()
-					return "["
-				end,
-				cond = conditions.buffer_not_empty,
-				color = { bg = colors.bg, fg = colors.fg },
-				padding = { left = 0, right = 0, gui = "bold" },
-			})
-
-			ins_right({
 				"filename",
 				cond = conditions.buffer_not_empty,
 				color = { fg = colors.fg, bg = colors.bg, gui = "bold" },
-				padding = { left = 0, right = 0 },
-			})
-
-			ins_right({
-				function()
-					return "]"
-				end,
-				cond = conditions.buffer_not_empty,
-				color = { bg = colors.bg, fg = colors.fg },
-				padding = { left = 0, right = 1, gui = "bold" },
-			})
-
-			ins_right({
-				function()
-					return "│"
-				end,
-				cond = conditions.buffer_not_empty,
-				color = { fg = colors.fg, bg = colors.bg },
-				padding = { left = 0, right = 0 },
-			})
-
-			ins_right({
-				"diagnostics",
-				sources = { "nvim_diagnostic" },
-				symbols = { error = " ", warn = " ", info = " ", hint = "󰌵 " },
-				diagnostics_color = {
-					error = { fg = colors.red, gui = "bold,italic" },
-					warn = { fg = colors.yellow, gui = "bold" },
-					info = { fg = colors.cyan, gui = "bold" },
-					hint = { fg = colors.magenta, gui = "bold" },
-				},
-				always_visible = true,
-				padding = { left = 1, right = 2 },
+				padding = { left = 0, right = 2 },
 			})
 
 			lualine.setup(config)
