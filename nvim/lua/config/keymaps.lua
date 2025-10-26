@@ -17,7 +17,7 @@ vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 vim.keymap.set("n", "te", ":tabedit<CR>")
 vim.keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 vim.keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
-vim.keymap.set("n", "<s-w>", ":q!<CR>", opts)
+vim.keymap.set("n", "<s-w>", ":close<CR>", opts)
 -- Split window
 vim.keymap.set("n", "ss", ":split<Return>", opts)
 vim.keymap.set("n", "sv", ":vsplit<Return>", opts)
