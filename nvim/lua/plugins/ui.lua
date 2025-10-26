@@ -2,6 +2,7 @@ return {
 
 	{
 		"folke/snacks.nvim",
+		priority = 1000,
 		lazy = false,
 		opts = {
 			scroll = { enabled = true },
@@ -50,7 +51,6 @@ return {
 		opts = {
 			timeout = 3500,
 			animation = "slide",
-			render = "wrapped-compact",
 		},
 	},
 
