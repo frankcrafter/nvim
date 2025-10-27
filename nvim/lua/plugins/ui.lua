@@ -20,12 +20,6 @@ return {
 			"MunifTanjim/nui.nvim",
 		},
 		opts = {
-			lsp = {
-				override = {
-					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-					["vim.lsp.util.stylize_markdown"] = true,
-				},
-			},
 			presets = {
 				lsp_doc_border = true,
 			},
@@ -228,7 +222,7 @@ return {
 			ins_right({
 				"diagnostics",
 				sources = { "nvim_diagnostic" },
-				symbols = { error = " ", warn = "  ", info = "  ", hint = " 󰌵 " },
+				symbols = { error = " ", warn = " ", info = " ", hint = "󰌵 " },
 				diagnostics_color = {
 					error = { fg = colors.red, gui = "bold,italic" },
 					warn = { fg = colors.yellow, gui = "bold" },
