@@ -33,17 +33,17 @@ return {
 			vim.diagnostic.config({
 				virtual_text = {
 					source = "if_many",
-					prefix = "●",
+					prefix = "■",
 				},
 				underline = true,
 				update_in_insert = true,
 				severity_sort = true,
 				signs = {
 					text = {
-						[vim.diagnostic.severity.ERROR] = " ",
+						[vim.diagnostic.severity.ERROR] = " ",
 						[vim.diagnostic.severity.WARN] = " ",
-						[vim.diagnostic.severity.INFO] = " ",
-						[vim.diagnostic.severity.HINT] = " ",
+						[vim.diagnostic.severity.INFO] = " ",
+						[vim.diagnostic.severity.HINT] = " ",
 					},
 				},
 			})
@@ -107,7 +107,7 @@ return {
 		},
 		opts = {
 			format_on_save = {
-				timeout_ms = 300,
+				timeout_ms = 200,
 				lsp_format = "fallback",
 			},
 			formatters_by_ft = {
