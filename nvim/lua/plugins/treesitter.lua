@@ -10,8 +10,7 @@ return {
 				indent = {
 					enable = true,
 				},
-				ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
-
+				ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
 				auto_install = true,
 			})
 		end,
