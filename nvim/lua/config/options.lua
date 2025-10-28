@@ -12,6 +12,7 @@ vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.opt.conceallevel = 2
 vim.opt.mouse = ""
 vim.opt.title = true
 vim.opt.cursorline = true

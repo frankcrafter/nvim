@@ -26,6 +26,8 @@ return {
 					},
 				},
 			})
+			vim.lsp.enable("lua_ls", "ts_ls", "html", "cssls", "tailwindcss")
+			-- diagnostics signs
 			vim.diagnostic.config({
 				virtual_text = {
 					source = "if_many",
@@ -43,12 +45,6 @@ return {
 					},
 				},
 			})
-			vim.lsp.enable("lua_ls", "ts_ls", "html", "cssls", "tailwindcss")
-			vim.keymap.set("n", "K", function()
-				vim.lsp.buf.hover()
-			end)
-			vim.keymap.set("n", "gn", vim.lsp.buf.definition, {})
-			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 		end,
 	},
 
@@ -100,6 +96,7 @@ return {
 		},
 	},
 
+	-- Formatters
 	{
 		"stevearc/conform.nvim",
 		dependencies = {

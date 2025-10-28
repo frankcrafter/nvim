@@ -37,3 +37,10 @@ vim.keymap.set("n", "<Cw><down>", "<C-w>-")
 vim.keymap.set("n", "<C-j>", function()
 	vim.diagnostic.jump({ count = 1, float = true })
 end, {})
+
+-- LSP
+vim.keymap.set("n", "K", function()
+	vim.lsp.buf.hover()
+end)
+vim.keymap.set("n", "gn", vim.lsp.buf.definition, {})
+vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
