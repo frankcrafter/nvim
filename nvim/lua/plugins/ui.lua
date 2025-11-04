@@ -7,6 +7,7 @@ return {
 		opts = {
 			scroll = { enabled = true },
 			words = { enabled = true },
+			statusline = { enabled = true },
 		},
 	},
 
@@ -65,6 +66,7 @@ return {
 			},
 			exclude = {
 				filetypes = {
+					"dashboard",
 					"help",
 					"lazy",
 					"mason",
@@ -211,7 +213,7 @@ return {
 				color = { fg = colors.fg, bg = colors.bg, gui = "bold" },
 			})
 
-			ins_right({
+			ins_left({
 				"diff",
 				symbols = { added = " ", modified = "󰝤 ", removed = " " },
 				diff_color = {
@@ -220,12 +222,13 @@ return {
 					removed = { fg = colors.red },
 				},
 				cond = conditions.hide_in_width,
+				padding = { left = 2, right = 0 },
 			})
 
 			ins_right({
 				"diagnostics",
 				sources = { "nvim_diagnostic" },
-				symbols = { error = " ", warn = "  ", info = "  ", hint = "  " },
+				symbols = { error = " ", warn = " ", info = " ", hint = " " },
 				diagnostics_color = {
 					error = { fg = colors.red, gui = "none" },
 					warn = { fg = colors.yellow, gui = "none" },
