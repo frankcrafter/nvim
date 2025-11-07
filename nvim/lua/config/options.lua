@@ -13,6 +13,8 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.mouse = ""
+vim.opt.smoothscroll = true
+vim.opt.ignorecase = true
 vim.opt.title = true
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
