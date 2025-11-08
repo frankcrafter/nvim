@@ -263,21 +263,30 @@ return {
 					return ""
 				end,
 				cond = conditions.buffer_not_empty,
-				color = { fg = colors.white, bg = colors.bg },
+				color = { fg = colors.grey, bg = colors.bg },
 				padding = { left = 0, right = 0 },
 			})
 
 			ins_right({
 				"progress",
 				cond = conditions.buffer_not_empty,
-				color = { fg = colors.bg, bg = colors.fg, gui = "bold" },
+				color = { fg = colors.bg, bg = colors.grey, gui = "bold" },
+				padding = { left = 1, right = 0 },
+			})
+
+			ins_right({
+				function()
+					return ""
+				end,
+				cond = conditions.buffer_not_empty,
+				color = { fg = colors.grey, bg = colors.grey },
 				padding = { left = 1, right = 0 },
 			})
 
 			ins_right({
 				"location",
 				cond = conditions.buffer_not_empty,
-				color = { fg = colors.bg, bg = colors.fg, gui = "italic" },
+				color = { fg = colors.bg, bg = colors.fg },
 				padding = { left = 1, right = 0 },
 			})
 
