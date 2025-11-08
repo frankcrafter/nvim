@@ -118,7 +118,8 @@ return {
 			local lualine = require("lualine")
 			local colors = {
 				bg = "#002D38",
-				fg = "#839495",
+				fg = "#9eabac",
+				grey = "#839395",
 				red = "#DC312E",
 				green = "#859900",
 				yellow = "#B38600",
@@ -178,7 +179,7 @@ return {
 					return ""
 				end,
 				cond = conditions.buffer_not_empty,
-				color = { fg = colors.bg, bg = colors.green },
+				color = { fg = colors.bg, bg = colors.blue },
 				padding = { right = 2, left = 2 },
 			})
 
@@ -187,13 +188,13 @@ return {
 					return ""
 				end,
 				cond = conditions.buffer_not_empty,
-				color = { fg = colors.green, bg = colors.bg },
-				padding = { left = 0, right = 1 },
+				color = { fg = colors.blue, bg = colors.fg },
+				padding = { left = 0, right = 0 },
 			})
 
 			ins_left({
 				function()
-					local msg = "searching..."
+					local msg = "No server"
 					local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
 					local clients = vim.lsp.get_clients()
 					if next(clients) == nil then
@@ -209,10 +210,43 @@ return {
 				end,
 				cond = conditions.buffer_not_empty,
 				icon = "",
-				color = { fg = colors.fg, bg = colors.bg, gui = "bold" },
+				color = { fg = colors.bg, bg = colors.fg },
 			})
 
 			ins_left({
+				function()
+					return ""
+				end,
+				cond = conditions.buffer_not_empty,
+				color = { fg = colors.fg, bg = colors.bg },
+				padding = { left = 0, right = 1 },
+			})
+
+			ins_left({
+				"diagnostics",
+				sources = { "nvim_diagnostic" },
+				symbols = { error = " ", warn = " ", info = " ", hint = " " },
+				diagnostics_color = {
+					error = { fg = colors.red, gui = "none" },
+					warn = { fg = colors.yellow, gui = "none" },
+					info = { fg = colors.blue, gui = "none" },
+					hint = { fg = colors.cyan, gui = "none" },
+				},
+				cond = conditions.buffer_not_empty,
+				always_visible = true,
+				padding = { left = 0, right = 1 },
+			})
+
+			ins_left({
+				function()
+					return ""
+				end,
+				cond = conditions.buffer_not_empty,
+				color = { fg = colors.grey, bg = colors.bg },
+				padding = { left = 0, right = 0 },
+			})
+
+			ins_right({
 				"diff",
 				symbols = { added = " ", modified = "󰝤 ", removed = " " },
 				diff_color = {
@@ -225,59 +259,42 @@ return {
 			})
 
 			ins_right({
-				"diagnostics",
-				sources = { "nvim_diagnostic" },
-				symbols = { error = " ", warn = " ", info = " ", hint = " " },
-				diagnostics_color = {
-					error = { fg = colors.red, gui = "none" },
-					warn = { fg = colors.yellow, gui = "none" },
-					info = { fg = colors.cyan, gui = "none" },
-					hint = { fg = colors.magenta, gui = "none" },
-				},
-				cond = conditions.buffer_not_empty,
-				always_visible = true,
-				padding = { left = 0, right = 2 },
-			})
-
-			ins_right({
 				function()
-					return "│"
+					return ""
 				end,
 				cond = conditions.buffer_not_empty,
-				color = { fg = colors.fg, bg = colors.bg },
-				padding = { left = 0, right = 2 },
-			})
-
-			ins_right({
-				function()
-					return "󰦨"
-				end,
-				cond = conditions.buffer_not_empty,
-				color = { bg = colors.bg, fg = colors.fg },
+				color = { fg = colors.white, bg = colors.bg },
 				padding = { left = 0, right = 0 },
+			})
+
+			ins_right({
+				"progress",
+				cond = conditions.buffer_not_empty,
+				color = { fg = colors.bg, bg = colors.fg, gui = "bold" },
+				padding = { left = 1, right = 0 },
 			})
 
 			ins_right({
 				"location",
 				cond = conditions.buffer_not_empty,
-				color = { fg = colors.fg, bg = colors.bg, gui = "italic" },
-				padding = { left = 1, right = 1 },
+				color = { fg = colors.bg, bg = colors.fg, gui = "italic" },
+				padding = { left = 1, right = 0 },
 			})
 
 			ins_right({
 				function()
-					return "│"
+					return ""
 				end,
 				cond = conditions.buffer_not_empty,
-				color = { fg = colors.fg },
-				padding = { left = 0, right = 1 },
+				color = { fg = colors.blue, bg = colors.fg },
+				padding = { left = 0, right = 0 },
 			})
 
 			ins_right({
 				"filename",
 				cond = conditions.buffer_not_empty,
-				color = { fg = colors.fg, bg = colors.bg, gui = "bold" },
-				padding = { left = 0, right = 2 },
+				color = { fg = colors.bg, bg = colors.blue, gui = "bold" },
+				padding = { left = 1, right = 1 },
 			})
 
 			lualine.setup(config)

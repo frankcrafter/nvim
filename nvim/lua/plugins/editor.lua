@@ -130,7 +130,7 @@ return {
 							preview_width = 0.45,
 							horizontal = {
 								width = 0.95,
-								height = 20,
+								height = 28,
 							},
 							preview_cutoff = 0,
 							prompt_position = "top",
@@ -142,7 +142,7 @@ return {
 							preview_width = 0.45,
 							horizontal = {
 								width = 0.95,
-								height = 20,
+								height = 28,
 							},
 							preview_cutoff = 0,
 							prompt_position = "top",
