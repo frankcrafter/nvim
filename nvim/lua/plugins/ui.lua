@@ -117,15 +117,15 @@ return {
 		opts = function()
 			local lualine = require("lualine")
 			local colors = {
-				bg = "#002D38",
-				fg = "#9eabac",
-				grey = "#839395",
-				red = "#DC312E",
-				green = "#859900",
-				yellow = "#B38600",
-				blue = "#278BD3",
+				bg = "#07333e",
+				fg = "#94a0a0",
+				grey = "#869596",
+				red = "#da2f2d",
+				green = "#849a00",
+				yellow = "#b28500",
+				blue = "#2381c2",
 				magenta = "#D33682",
-				cyan = "#2AA298",
+				cyan = "#28a097",
 			}
 			local conditions = {
 				buffer_not_empty = function()
@@ -180,7 +180,7 @@ return {
 				end,
 				cond = conditions.buffer_not_empty,
 				color = { fg = colors.bg, bg = colors.blue },
-				padding = { right = 2, left = 2 },
+				padding = { right = 1, left = 1 },
 			})
 
 			ins_left({
@@ -255,7 +255,7 @@ return {
 					removed = { fg = colors.red },
 				},
 				cond = conditions.hide_in_width,
-				padding = { left = 2, right = 0 },
+				padding = { left = 0, right = 1 },
 			})
 
 			ins_right({
@@ -279,7 +279,7 @@ return {
 					return ""
 				end,
 				cond = conditions.buffer_not_empty,
-				color = { fg = colors.grey, bg = colors.grey },
+				color = { fg = colors.white, bg = colors.grey },
 				padding = { left = 1, right = 0 },
 			})
 
