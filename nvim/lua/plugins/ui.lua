@@ -116,6 +116,7 @@ return {
 		"nvim-lualine/lualine.nvim",
 		opts = function()
 			local lualine = require("lualine")
+			local navic = require("nvim-navic")
 			local colors = {
 				bg = "#07333e",
 				fg = "#94a0a0",
@@ -156,6 +157,18 @@ return {
 					lualine_z = {},
 					lualine_c = {},
 					lualine_x = {},
+				},
+				winbar = {
+					lualine_c = {
+						{
+							function()
+								return navic.get_location()
+							end,
+							cond = function()
+								return navic.is_available()
+							end,
+						},
+					},
 				},
 				inactive_sections = {
 					lualine_a = {},
