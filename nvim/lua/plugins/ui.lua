@@ -161,12 +161,9 @@ return {
 				winbar = {
 					lualine_c = {
 						{
-							function()
-								return navic.get_location()
-							end,
-							cond = function()
-								return navic.is_available()
-							end,
+							"navic",
+							color_correction = "dynamic",
+							navic_opts = nil,
 						},
 					},
 				},
