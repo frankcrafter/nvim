@@ -11,24 +11,6 @@ return {
 	},
 
 	{
-		"SmiteshP/nvim-navic",
-		opts = function()
-			return {
-				lsp = {
-					auto_attach = true,
-					preference = nil,
-				},
-				separator = " > ",
-				highlight = true,
-				depth_limit_indicator = "..",
-				safe_output = true,
-				depth_limit = 5,
-				lazy_update_context = true,
-			}
-		end,
-	},
-
-	{
 		"lewis6991/gitsigns.nvim",
 		opts = {
 			sign_priority = 1,
